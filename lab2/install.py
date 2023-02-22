@@ -9,19 +9,20 @@ absolute_secret_file = "/root/.flag/.seriously/.true_flag/.im_sure/.really/.more
 flag_4_1_start = "/root/.flag/.seriously/.true_flag/.im_sure/.really/.more/.directories/.u/.cant/.do/.this/.more/.absolutely/.just/.chill/.flag_4_1_start"  # кончилось?))
 file_4_hashes = "/root/.do_not_enter/.file_with_hashes"  # names,times,starts
 list_of_files = [file_with_names, file_4_times, file_4_starts, absolute_secret_file, flag_4_1_start, file_4_hashes]
-if sum([os.path.exists(path) for path in list_of_files]) == 6: # Если все файлы остались на месте то востанавливаем значения
+if sum([os.path.exists(path) for path in
+        list_of_files]) == 6:  # Если все файлы остались на месте то востанавливаем значения
     if int(open(flag_4_1_start).read().split()[0]) == 0:
         if os.path.exists("main.py"):
             print("all it's ok, dont use it without trouble")
         else:
             if os.path.exists(".main.py"):
-                os.system("mv .main.py main.py") # Удаляем из скрытых сам скрипт
+                os.system("mv .main.py main.py")  # Удаляем из скрытых сам скрипт
             else:
                 print("something went wrong. You delete main.py?")
     else:
         print("No. You spend all your abilities. BUY LICENSE!!!")
 
-elif sum([os.path.exists(path) for path in list_of_files]) == 0: # Если ни одного файла из нужных нет
+elif sum([os.path.exists(path) for path in list_of_files]) == 0:  # Если ни одного файла из нужных нет
     if not os.path.exists("/root/.do_not_enter/"):
         os.makedirs("/root/.do_not_enter/", mode=0o777, exist_ok=True)
     if not os.path.exists(
@@ -35,7 +36,7 @@ elif sum([os.path.exists(path) for path in list_of_files]) == 0: # Если ни
     for i in range(len(list_of_files)):
         file = open(list_of_files[i], "w")
         if i != 0:
-            file.write(list_of_values[i]) # Пишем стандартные значения при первом запуске
+            file.write(list_of_values[i])  # Пишем стандартные значения при первом запуске
         file.close()
         os.chmod(list_of_files[i], 0o777)
 
@@ -43,10 +44,8 @@ else:
     print("Nice try, but not today")
     os.system("clear")
     print("Deleting system...")
-    for i in tqdm(range(1000)):# Вывод бара прогресса
+    for i in tqdm(range(1000)):  # Вывод бара прогресса
         time.sleep(0.002)
 
     print("\nDeleted!!")
-    os.system("poweroff") # Отключение системы если таковое есть
-
-
+    os.system("poweroff")  # Отключение системы если таковое есть
